@@ -3,15 +3,15 @@
 void *memcpy(void *dest, const void *src, size_t n)
 {
 	int		i;
-	unsigned char	*str;
-	unsigned char	*src2;
+	char	*str;
+	char	*src2;
 
 	i = 0;
 	str = dest;
 	src2 = src;
 	while (n)
 	{
-		str[i] = src2[i];
+		str[i] = src[i];
 		i++;
 		n--;
 	}
