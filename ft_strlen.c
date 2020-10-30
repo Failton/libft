@@ -10,17 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-int		ft_strlen(char *str)
+size_t	ft_strlen(const char *s)
 {
 	int len;
 
 	len = 0;
-	while (*str)
+	while (*s)
 	{
-		str = str + 1;
+		s = s + 1;
 		len++;
 	}
 	return (len);
+}
+
+int main(int argc, char **argv)
+{
+	(void)argc;
+	printf("%ld\n", ft_strlen(argv[1]));
 }

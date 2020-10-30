@@ -7,7 +7,8 @@ int ft_isdigit(int c)
 	return (0);
 }
 
-int main()
+int main(int argc, char **argv)
 {
-	printf("%d\n", ft_isdigit(47));
+	(void)argc;
+	printf("%d\n", ft_isdigit(argv[1][0]));
 }
