@@ -10,28 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
-	int a[2];
+	int i;
 	int num;
+	int minus;
 
 	num = 0;
-	a[0] = 0;
-	a[1] = 0;
-	while ((str[a[1]] > 8 && str[a[1]] < 14) || str[a[1]] == 32)
-		a[1]++;
-	while (str[a[1]] == 45 || str[a[1]] == 43)
+	minus = 2;
+	i = 0;
+	while ((str[i] > 8 && str[i] < 14) || str[i] == 32)
+		i++;
+	if (str[i] == 45)
+		minus = 1;
+	if (str[i] == 43)
+		minus = 0;
+	if (minus == 0 || minus == 1)
+		i++;
+	while (str[i] > 47 && str[i] < 58)
 	{
-		if (str[a[1]] == 45)
-			a[0]++;
-		a[1]++;
+		num = num * 10 + str[i] - '0';
+		i++;
 	}
-	while (str[a[1]] > 47 && str[a[1]] < 58)
-	{
-		num = num * 10 + str[a[1]] - '0';
-		a[1]++;
-	}
-	if (a[0] % 2 == 1)
+	if (minus == 1)
 		num *= -1;
 	return (num);
 }

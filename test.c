@@ -1,7 +1,8 @@
 #include <stdio.h>
-#include <ctype.h>
+#include <stdlib.h>
 
-int main()
+int main(int argc, char **argv)
 {
-	printf("%d", isdigit('7'));
+	(void)argc;
+	printf("%d", atoi(argv[1]));
 }
