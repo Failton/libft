@@ -4,22 +4,20 @@ void *ft_memmove(void *dst, const void *src, size_t len)
 {
 	char		*dest;
 	const char	*src_true;
-	int			i;
 
-	i = 0;
 	dest = dst;
 	src_true = src;
 	while (len)
 	{
-		dest[i] = src_true[i];
-		i++;
+		dest[len - 1] = src_true[len - 1];
 		len--;
 	}
 	return (dest);
 }
 
-int main(int argc, char **argv)
+int main()
 {
-	(void)argc;
-	printf("%s", ft_memmove(argv[1], argv[2], 5));
+	char a[10] = "qwerty";
+	ft_memmove(a + 1, a, 3);
+	printf("%s", a);
 }
