@@ -24,9 +24,3 @@ size_t	ft_strlen(const char *s)
 	}
 	return (len);
 }
-
-int main(int argc, char **argv)
-{
-	(void)argc;
-	printf("%ld\n", ft_strlen(argv[1]));
-}

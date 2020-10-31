@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void *ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	char		*dest;
 	const char	*src_true;
@@ -13,11 +13,4 @@ void *ft_memmove(void *dst, const void *src, size_t len)
 		len--;
 	}
 	return (dest);
-}
-
-int main()
-{
-	char a[10] = "qwerty";
-	ft_memmove(a + 1, a, 3);
-	printf("%s", a);
 }

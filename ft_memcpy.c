@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void *memcpy(void *dest, const void *src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	int		i;
 	char		*str;
@@ -16,13 +16,4 @@ void *memcpy(void *dest, const void *src, size_t n)
 		n--;
 	}
 	return (str);
-}
-
-int main()
-{
-	char a[15] = "1234567890";
-	char b[10] = "qwertyuiop";
-	printf("%s %s\n", a, b);
-	memcpy(a, b, 5);
-	printf("%s %s\n", a, b);
 }

@@ -14,8 +14,8 @@
 
 void	*ft_memset(void *b, int c, size_t len)
 {
-	int				i;
-	unsigned char	*str;
+	int	      i;
+	unsigned char *str;
 
 	i = 0;
 	str = b;
@@ -26,10 +26,4 @@ void	*ft_memset(void *b, int c, size_t len)
 		i++;
 	}
 	return (b);
-}
-
-int main()
-{
-	unsigned char i[15] = "1234567890:";
-
 }
