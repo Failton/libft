@@ -1,17 +1,19 @@
 
 #include <stdio.h>
 
-void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	char		*str;
-	const char	*src_true;
+	unsigned char		*str;
+	const unsigned char	*src_true;
+	unsigned char sign;
 
-	str = dest;
+	str = dst;
 	src_true = src;
+	sign = (unsigned char)c;
 	while (n)
 	{
 		*str = *src_true;
-		if (*src_true == c)
+		if (*src_true == sign)
 			return (str + 1);
 		n--;
 		src_true++;

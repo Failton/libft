@@ -5,5 +5,5 @@
 
 int main()
 {
-	printf("%c\n", toupper(-145));
+	printf("%d\n", isprint(90));
 }

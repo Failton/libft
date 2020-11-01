@@ -1,13 +1,15 @@
 #include <stdio.h>
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	int		i;
 	char		*str;
 	const char	*src2;
 
+	if (dst == NULL && src == NULL)
+        return (dst);
 	i = 0;
-	str = dest;
+	str = dst;
 	src2 = src;
 	while (n)
 	{
