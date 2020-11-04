@@ -18,6 +18,8 @@ LIB	= libft.h
 
 NAME	= libft.a
 
+SONAME	= libft.so
+
 CC	= gcc
 
 RM	= rm -f
@@ -27,7 +29,7 @@ AR	= ar rc
 CFLAGS	= -Wall -Wextra -Werror
 
 .c.o:
-	${CC} ${CFLAGS} -I${LIB} -c $< -o ${<:.c=.o}
+	${CC} ${CFLAGS} -L${LIB} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
 	${AR} ${NAME} ${OBJS}
@@ -38,8 +40,11 @@ clean:
 	${RM} ${OBJS}
 
 fclean:		clean
-	${RM} ${NAME}
+	${RM} ${NAME} ${SONAME}
 
 re:		fclean all
+
+so:	${OBJS}
+	${CC} -shared -o ${SONAME} ${OBJS}
 
 .PHONY:		all clean fclean re
