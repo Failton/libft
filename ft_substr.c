@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-size_t	ft_strlen(const char *s)
+static size_t	ft_strlen(const char *s)
 {
 	int len;
 
@@ -21,11 +21,13 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
 	unsigned int i;
 
 	i = 0;
-	str = malloc(sizeof(str) * len + 1);
+	if (!s)
+		return (0);
+	str = malloc(sizeof(*str) * (len + 1));
 	if (str == 0)
 		return (0);
 	if (start >= ft_strlen(s))
-		str[i] = '\0';
+		str[i] = '\0';	
 	else
 		while (s[start] && len != i)
 			{
@@ -41,6 +43,6 @@ int main(int argc, char **argv)
 {
 	char *a;
 	(void)argc;
-	a = ft_substr(argv[1], 10, 5);
+	a = ft_substr(argv[1], 5, 10);
 	printf("%s\n", a);
 }
