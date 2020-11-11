@@ -1,6 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "libft.h"
 
 int ft_arraysize(char const *s, char c)
 {
@@ -9,12 +8,10 @@ int ft_arraysize(char const *s, char c)
 	int flag;
 
 	i = 0;
-	n = 1;
+	n = 2;
 	flag = 0;
 	while (s[i] != '\0')
 	{
-		while (s[i] == c)
-			i++;
 		if (s[i] != c && s[i] != '\0')
 		{
 			flag = 1;
@@ -22,13 +19,15 @@ int ft_arraysize(char const *s, char c)
 			while (s[i] != c && s[i] != '\0')
 				i++;
 		}
+		while (s[i] == c)
+			i++;
 	}
 	if (flag == 1)
 		n--;
 	return (n);
 }
 
-int ft_allocword(char const *s, char c, char **words)
+int ft_allocword(char const *s, char c, char ***words)
 {
 	int i;
 	int j;
@@ -44,16 +43,14 @@ int ft_allocword(char const *s, char c, char **words)
 		j = i;
 		while (s[j] != c && s[j] != '\0')
 			j++;
-		if (s[i] != '\0')
-		{
-			words[k] = malloc(sizeof(**words) * (j - i + 1));
-			k++;
-		}
+		words[0][k] = malloc(sizeof(char) * (j - i + 1));
 		i = j;
-		if (words[k - 1] == 0)
-			return (k - 1);
+		if (words[0][k] == 0)
+			return (k);
+		k++;
 	}
-	words[k] = NULL;
+	words[0][k] = malloc(sizeof(char) * 1);
+	words[0][k] = NULL;
 	return (-1);
 }
 
@@ -61,7 +58,7 @@ int 	ft_alloc(char const *s, char c, char ***words)
 {
 	int alloc;
 
-	*words = malloc(sizeof(**words) * (ft_arraysize(s, c) + 1));
+	*words = malloc(sizeof(char*) * (ft_arraysize(s, c)));
 	if (words == 0)
 	{
 		free(*words);
@@ -69,12 +66,12 @@ int 	ft_alloc(char const *s, char c, char ***words)
 	}
 	if (ft_arraysize(s, c) == 0 || !s)
 		return (0);
-	alloc = ft_allocword(s, c, *words);
+	alloc = ft_allocword(s, c, words);
 	if (alloc >= 0)
 	{
 		while (alloc <= 0)
 		{
-			free(*words[alloc]);
+			free(words[0][alloc]);
 			alloc--;
 		}
 		return (0);
@@ -102,6 +99,7 @@ char	**ft_split(char const *s, char c)
 		while (s[i] != c && s[i] != '\0')
 		{
 			words[j][k] = s[i];
+			printf("%c|", words[j][k]);
 			k++;
 			i++;
 		}
@@ -112,24 +110,22 @@ char	**ft_split(char const *s, char c)
 	}
 	return (words);
 }
-
-int main(int argc, char **argv)
+int main()
 {
 	char **words;
-//	char c[36] = "  split   this for   me  !   ";
+	char c[36] = "  split   this for   me  !   ";
 	int i = 0;
-	(void)argc;
-	words = ft_split(argv[1], argv[2][0]);
+	words = ft_split(c, ' ');
+	/* while (words[i]) */
+	/* { */
+	/* 	printf("%s|\n", words[i]); */
+	/* 	i++; */
+	/* } */
+
 	while (words[i])
 	{
 		printf("%s|\n", words[i]);
 		i++;
 	}
-
-	/* while (i < 2) */
-	/* { */
-	/* 	printf("%s|\n", words[i]); */
-	/* 	i++; */
-	/* } */
 //	printf("%s\n", words[5]);
 }

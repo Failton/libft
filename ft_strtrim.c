@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "libft.h"
 
-int	ft_inset(char sign, char const *set)
+static int	ft_inset(char sign, char const *set)
 {
 	int i;
 
@@ -16,7 +16,7 @@ int	ft_inset(char sign, char const *set)
 	return (0);
 }
 
-int	ft_f_pos(char const *s1, char const *set)
+static int	ft_f_pos(char const *s1, char const *set)
 {
 	int i;
 
@@ -30,7 +30,7 @@ int	ft_f_pos(char const *s1, char const *set)
 	return (i);
 }
 
-int	ft_s_pos(char const *s1, char const *set)
+static int	ft_s_pos(char const *s1, char const *set)
 {
 	int len;
 
