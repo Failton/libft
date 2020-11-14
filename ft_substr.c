@@ -1,24 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pruthann <pruth@student.21-school.ru>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/14 15:46:33 by pruthann          #+#    #+#             */
+/*   Updated: 2020/11/14 15:47:58 by pruthann         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
-static size_t	ft_strlen(const char *s)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int len;
-
-	len = 0;
-	while (*s)
-	{
-		s = s + 1;
-		len++;
-	}
-	return (len);
-}
-
-char *ft_substr(char const *s, unsigned int start, size_t len)
-{
-	char *str;
-	unsigned int i;
+	char			*str;
+	unsigned int	i;
 
 	i = 0;
 	if (!s)
@@ -27,22 +24,14 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
 	if (str == 0)
 		return (0);
 	if (start >= ft_strlen(s))
-		str[i] = '\0';	
+		str[i] = '\0';
 	else
 		while (s[start] && len != i)
-			{
-				str[i] = s[start];
-				i++;
-				start++;
-			}
-	str[i] = '\0';	
+		{
+			str[i] = s[start];
+			i++;
+			start++;
+		}
+	str[i] = '\0';
 	return (str);
-}
-
-int main(int argc, char **argv)
-{
-	char *a;
-	(void)argc;
-	a = ft_substr(argv[1], 5, 10);
-	printf("%s\n", a);
 }

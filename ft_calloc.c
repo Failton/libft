@@ -1,9 +1,21 @@
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pruthann <pruth@student.21-school.ru>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/14 16:45:26 by pruthann          #+#    #+#             */
+/*   Updated: 2020/11/14 16:45:43 by pruthann         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void *ft_calloc(size_t count, size_t size)
+#include "libft.h"
+
+void	*ft_calloc(size_t count, size_t size)
 {
-	unsigned int total;
-	char *s;
+	unsigned int	total;
+	char			*s;
 
 	total = count * size;
 	s = malloc(total);

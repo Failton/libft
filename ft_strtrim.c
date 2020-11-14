@@ -1,5 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pruthann <pruth@student.21-school.ru>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/14 15:51:12 by pruthann          #+#    #+#             */
+/*   Updated: 2020/11/14 15:52:37 by pruthann         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 static int	ft_inset(char sign, char const *set)
@@ -44,12 +54,12 @@ static int	ft_s_pos(char const *s1, char const *set)
 	return (len);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char		*ft_strtrim(char const *s1, char const *set)
 {
-	int	i;
-	int	f_pos;
-	int	s_pos;
-	char 	*str;
+	int		i;
+	int		f_pos;
+	int		s_pos;
+	char	*str;
 
 	i = 0;
 	if (!s1)
@@ -57,9 +67,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 	f_pos = ft_f_pos(s1, set);
 	s_pos = ft_s_pos(s1, set);
 	if (s_pos - f_pos < 0)
-		str = malloc(sizeof(char) * 1);
+		str = malloc(sizeof(*str) * 1);
 	else
-		str = malloc(sizeof(char) * (s_pos - f_pos + 2));
+		str = malloc(sizeof(*str) * (s_pos - f_pos + 2));
 	if (str == 0)
 		return (0);
 	while (f_pos <= s_pos)
@@ -71,9 +81,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	str[i] = '\0';
 	return (str);
 }
-
-/* int main (int argc, char **argv) */
-/* { */
-/* 	(void)argc; */
-/* 	printf("%s\n", ft_strtrim(argv[1], argv[2])); */
-/* } */

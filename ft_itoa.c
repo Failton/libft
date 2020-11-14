@@ -1,8 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pruthann <pruth@student.21-school.ru>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/14 15:55:48 by pruthann          #+#    #+#             */
+/*   Updated: 2020/11/14 15:56:27 by pruthann         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
-void	ft_putnbr_str(char *str, int n, int i)
+static void	ft_putnbr_str(char *str, int n, int i)
 {
 	char	sign;
 
@@ -28,7 +38,7 @@ void	ft_putnbr_str(char *str, int n, int i)
 	}
 }
 
-int	ft_intlen(int n)
+static int	ft_intlen(int n)
 {
 	int len;
 
@@ -43,13 +53,13 @@ int	ft_intlen(int n)
 	return (len);
 }
 
-char	*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
-	int i;
-	int len;
-	char *str;
-	char temp;
-	int temp_len;
+	int		i;
+	int		len;
+	char	*str;
+	char	temp;
+	int		temp_len;
 
 	i = 0;
 	len = ft_intlen(n);
@@ -66,13 +76,8 @@ char	*ft_itoa(int n)
 		str[i] = temp;
 		temp_len--;
 		len--;
-		i++;	
+		i++;
 	}
 	str[ft_intlen(n)] = '\0';
 	return (str);
 }
-/*  */
-/* int main() */
-/* { */
-/* 	printf("%s\n", ft_itoa(-123456)); */
-/* } */

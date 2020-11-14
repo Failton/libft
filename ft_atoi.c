@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pruthann <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pruthann <pruth@student.21-school.ru>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/28 09:07:23 by pruthann          #+#    #+#             */
-/*   Updated: 2020/07/28 22:09:15 by pruthann         ###   ########.fr       */
+/*   Created: 2020/11/14 16:32:57 by pruthann          #+#    #+#             */
+/*   Updated: 2020/11/14 17:06:14 by pruthann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *str)
+#include "libft.h"
+
+int		ft_atoi(const char *str)
 {
 	int i;
 	int num;

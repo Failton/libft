@@ -1,30 +1,28 @@
-#include <stdio.h>
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pruthann <pruth@student.21-school.ru>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/14 15:48:06 by pruthann          #+#    #+#             */
+/*   Updated: 2020/11/14 15:48:52 by pruthann         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-static size_t	ft_strlen(const char *s)
+#include "libft.h"
+
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int len;
-
-	len = 0;
-	while (*s)
-	{
-		s = s + 1;
-		len++;
-	}
-	return (len);
-}
-
-char *ft_strjoin(char const *s1, char const *s2)
-{
-	char *str;
-	int i;
-	int j;
+	char	*str;
+	int		i;
+	int		j;
 
 	i = 0;
 	j = 0;
 	if (!s1 || !s2)
 		return (0);
-	str = malloc(sizeof(str) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (str == 0)
 		return (0);
 	while (s1[i])
@@ -41,9 +39,3 @@ char *ft_strjoin(char const *s1, char const *s2)
 	str[i] = '\0';
 	return (str);
 }
-
-/* int main(int argc, char **argv) */
-/* { */
-/* 	(void)argc; */
-/* 	printf("%s", ft_strjoin(argv[1], argv[2])); */
-/* } */

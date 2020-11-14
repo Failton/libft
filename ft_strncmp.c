@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pruthann <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pruthann <pruth@student.21-school.ru>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/25 22:39:00 by pruthann          #+#    #+#             */
-/*   Updated: 2020/07/26 18:24:37 by pruthann         ###   ########.fr       */
+/*   Created: 2020/11/14 16:31:43 by pruthann          #+#    #+#             */
+/*   Updated: 2020/11/14 16:32:40 by pruthann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
+
 int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	unsigned int i;

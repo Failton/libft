@@ -1,25 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pruthann <pruth@student.21-school.ru>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/14 16:26:53 by pruthann          #+#    #+#             */
+/*   Updated: 2020/11/14 16:27:17 by pruthann         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-static size_t	ft_strlen(const char *s)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	int len;
-
-	len = 0;
-	while (*s)
-	{
-		s = s + 1;
-		len++;
-	}
-	return (len);
-}
-
-size_t ft_strlcat(char *dst, const char *src, size_t dstsize)
-{
-	char *temp_dst;
-	char *temp_src;
-	unsigned int temp_dstsize;
-	unsigned int len;
+	char			*temp_dst;
+	char			*temp_src;
+	unsigned int	temp_dstsize;
+	unsigned int	len;
 
 	len = ft_strlen(dst) + ft_strlen(src);
 	temp_dst = dst;

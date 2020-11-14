@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pruthann <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pruthann <pruth@student.21-school.ru>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/26 14:36:40 by pruthann          #+#    #+#             */
-/*   Updated: 2020/07/26 20:36:22 by pruthann         ###   ########.fr       */
+/*   Created: 2020/11/14 16:29:14 by pruthann          #+#    #+#             */
+/*   Updated: 2020/11/14 16:29:56 by pruthann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-	
+#include "libft.h"
+
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	char	*temp_haystack;
 	char	*temp_needle;
 	char	*haystack_iter;
-	int	temp_len;
+	int		temp_len;
 
 	if (!(*needle))
 		return ((char *)haystack);
