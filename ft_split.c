@@ -6,28 +6,23 @@
 /*   By: pruthann <pruth@student.21-school.ru>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 15:52:44 by pruthann          #+#    #+#             */
-/*   Updated: 2020/11/14 17:43:40 by pruthann         ###   ########.fr       */
+/*   Updated: 2020/11/15 14:40:04 by pruthann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <unistd.h>
 
 static int	ft_arraysize(char const *s, char c)
 {
 	int i;
 	int n;
-	int flag;
 
 	i = 0;
-	n = 2;
-	flag = 0;
+	n = 1;
 	while (s[i] != '\0')
 	{
 		if (s[i] != c && s[i] != '\0')
 		{
-			flag = 1;
 			n++;
 			while (s[i] != c && s[i] != '\0')
 				i++;
@@ -35,8 +30,6 @@ static int	ft_arraysize(char const *s, char c)
 		while (s[i] == c && s[i] != '\0')
 			i++;
 	}
-	if (flag == 1)
-		n--;
 	return (n);
 }
 
@@ -49,7 +42,7 @@ static int	ft_allocword(char const *s, char c, char ***words)
 	i = 0;
 	j = 0;
 	k = 0;
-	while (s[i] != '\0' || k == 0)
+	while (s[i] != '\0')
 	{
 		while (s[i] == c && s[i] != '\0')
 			i++;

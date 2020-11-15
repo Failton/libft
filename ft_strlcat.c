@@ -6,7 +6,7 @@
 /*   By: pruthann <pruth@student.21-school.ru>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 16:26:53 by pruthann          #+#    #+#             */
-/*   Updated: 2020/11/14 16:27:17 by pruthann         ###   ########.fr       */
+/*   Updated: 2020/11/15 13:58:27 by pruthann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 		temp_dst++;
 		temp_dstsize--;
 	}
-	while (*temp_src && temp_dstsize - 1)
+	while (*temp_src && temp_dstsize - 1 && temp_dstsize)
 	{
 		*temp_dst = *temp_src;
 		temp_src++;
