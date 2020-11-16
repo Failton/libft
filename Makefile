@@ -31,22 +31,25 @@ AR	= ar rc
 CFLAGS	= -Wall -Wextra -Werror
 
 .c.o:
-	${CC} ${CFLAGS} -I${LIB} -c $< -o ${<:.c=.o}
+	${CC} ${CFLAGS} -I/${LIB} -c $< -o ${<:.c=.o}
 
 $(NAME):	${OBJS}
 	${AR} ${NAME} ${OBJS}
 
-all:		${NAME}
+all:	${NAME}
 
 clean:
 	${RM} ${OBJS} ${OBJS_B}
 
-fclean:		clean
+fclean:	clean
 	${RM} ${NAME} 
 
-re:		fclean all
+re:	fclean all
 
-bonus:		${OBJS} ${OBJS_B}
+bonus:	${OBJS} ${OBJS_B}
 	${AR} ${NAME} ${OBJS} ${OBJS_B}
 
-.PHONY:		all clean fclean re bonus
+so:	${OBJS} ${OBJS_B}
+	gcc -shared -o libft.so ${OBJS} ${OBJS_B}
+
+.PHONY:	all clean fclean re bonus

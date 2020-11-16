@@ -12,29 +12,47 @@
 
 #include "libft.h"
 
-t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+static int	ft_push_back(t_list **begin_list, void *data)
 {
-	t_list	*temp;
+	t_list *new;
+	t_list *temp;
+
+	new = ft_lstnew(data);
+	if (new == 0)
+		return (0);
+	temp = *begin_list;
+	if (*begin_list)
+	{
+		while ((*begin_list)->next)
+			*begin_list = (*begin_list)->next;
+		(*begin_list)->next = new;
+		*begin_list = temp;
+	}
+	else
+		*begin_list = new;
+	return (1);
+}
+
+t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+{
 	t_list	*temp_lst;
 	t_list	*newlst;
+	int	flag;
 
 	if (!lst)
 		return (0);
-	newlst = ft_lstnew(f(lst->content));
-	temp = newlst;
 	temp_lst = lst;
-	temp_lst = temp_lst->next;
-	newlst = newlst->next;
-	while (temp_lst)
+	while (lst != 0)
 	{
-		newlst = ft_lstnew(f(temp_lst->content));
-		if (newlst == 0)
+
+		flag = ft_push_back(&newlst, f(lst->content));
+		if (flag == 0)
 		{
-			ft_lstclear(&temp, del);
+			ft_lstclear(&newlst, del);
 			return (0);
 		}
-		temp_lst = temp_lst->next;
-		newlst = newlst->next;
+		lst = lst->next;
 	}
-	return (temp);
+	lst = temp_lst;
+	return (newlst);
 }
